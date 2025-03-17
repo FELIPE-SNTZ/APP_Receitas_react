@@ -5,7 +5,7 @@ import { View, Text, Button, StyleSheet,TouchableOpacity,Image } from 'react-nat
 
 export default function ReceitasScreen({ navigation }) {
     const receitas = [
-        { id: 1, nome: 'BOLO DE CHOCOLATE',imagem: require('../assets/img/bolo.jpg'), ingredientes: 'Farinha Ovos, Chocolate...', preparo: 'Misture tudo e assepor 40min.' },
+        { id: 1, nome: 'BOLO DE CHOCOLATE',imagem: require('../assets/img/bolo.jpg'), ingredientes: 'Farinha Ovos, Chocolate...', preparo: 'Misture tudo e asse por 40min.' },
         { id: 2, nome: 'PANQUECA', imagem: require('../assets/img/panqueca.jpg'),  ingredientes: 'Farinha, Leite, Ovos...', preparo: 'Misture tudo e frite em uma frigideira.' },
         { id: 3, nome: 'BRIGADEIRO', imagem: require('../assets/img/briga.jpg'),  ingredientes: 'Leite Condensado, Chocolate, Manteiga...', preparo: ' Cozinhe até engrossar e enrole.'},
     ];
@@ -14,7 +14,7 @@ export default function ReceitasScreen({ navigation }) {
             <Text style={styles.title}>🍽 Lista de Receitas</Text>
             {receitas.map((receita) => (
                 <View key={receita.id} style={styles.card}>
-                    <Image style={styles.imagem} source= {receita.imagem}/>
+                    <View style={styles.imgview}><Image style={styles.imagem} source= {receita.imagem}/></View>
                     <Text style={styles.recipeName}>{receita.nome}</Text>
                     <TouchableOpacity style={styles.Button} onPress={() => navigation.navigate('Detalhes', receita)}>
                         <Text style={styles.Buttont}>Ver Detalhes</Text>
@@ -65,9 +65,14 @@ const styles = StyleSheet.create({
         
     },
     imagem:{
-        width:340,
-        height:240,
-        justifyContent:'center',
+        width:100,
+        height:100,
+        
+
     },
+    imgview:{
+        justifyContent:'center',
+        alignItems:'center'
+    }
     
 });
